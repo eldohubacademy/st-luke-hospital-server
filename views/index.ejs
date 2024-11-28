@@ -7,5 +7,34 @@
   </head>
   <body>
     <h1>Home page</h1>
+    <section class="doctors">
+      <% doctors.forEach(doc=>{ %>
+      <div class="doc">
+        <h2><%= doc.name%></h2>
+        <h3>
+          <%= doc.specialty%> with <%= doc.yearsOfExperience %> years pf
+          experience
+        </h3>
+        <p>
+          <%= doc.email %>
+          <span> <%= doc.available? "Avaliable":"Not Available" %> </span>
+        </p>
+      </div>
+      <% }) %>
+    </section>
+    <a href="/doctors"> View all doctors</a>
+    <style>
+      section {
+        display: flex;
+        gap: 20px;
+        flex-wrap: wrap;
+      }
+      .doc {
+        min-width: 18%;
+        border: 1px solid black;
+        padding: 14px;
+        border-radius: 8px;
+      }
+    </style>
   </body>
 </html>
